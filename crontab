@@ -1,0 +1,5 @@
+# m h  dom mon dow   command
+*/5 * * * * python ~/cam/thingspeak.py
+*/1 * * * * /home/pi/cam/respawnIfNeeded.sh
+*/1 * * * * /home/pi/cam/isNighttime.py
+

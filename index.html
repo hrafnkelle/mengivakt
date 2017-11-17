@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="is-IS">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<head>
+<meta charset="utf-8"/>
+</head>
+
+<body>
+
+<div ng-app="vaki" ng-controller="vakiCtrl">
+ 	<h1>Hitinn í stofunni er {{channel.feeds[0].field1}}°C </h1>
+ 	<h2>Hitinn í gestahúsi er {{channel2.feeds[0].field1}}°C </h2>
+
+ <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/184416/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=1000&type=line&yaxismax=25&yaxismin=10&api_key=J8TIP8XXPMHH933N"></iframe>
+<br/>
+ <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/185567/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=1000&type=line&yaxismax=25&yaxismin=10&api_key=IS5VU9PRFUU3Y6DA"></iframe>
+ <p/>
+ <img ng-src="pic.jpg?{{nowstamp}}"/>
+</div>
+
+<script>
+var app = angular.module('vaki', []);
+app.controller('vakiCtrl', function($scope, $http) {
+        $scope.nowstamp=((new Date()).getTime()).toString();
+	console.log($scope.nowstamp);
+	$http.jsonp("https://api.thingspeak.com/channels/184416/feeds.json?api_key=J8TIP8XXPMHH933N&results=1&callback=JSON_CALLBACK")
+	     .then(function(json) {
+	        $scope.channel = json.data;
+	      });
+	$http.jsonp("https://api.thingspeak.com/channels/185567/feeds.json?api_key=IS5VU9PRFUU3Y6DA&results=1&callback=JSON_CALLBACK")
+	     .then(function(json) {
+	        $scope.channel2 = json.data;
+	      });
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+# add this to /etc/fstab
+tmpfs /var/ramdisk tmpfs nodev,nosuid,size=4M 0 0
