@@ -1,0 +1,1 @@
+/var/ramdisk/ IN_CLOSE_WRITE ~/mengivakt/uploadFile.py $@/$#
