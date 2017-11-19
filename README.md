@@ -13,8 +13,8 @@ Scripts and config for a raspberry pi with a camera to monitor
 * add to crontab from the crontabfile
 * set up a ramdisk by adding to fstab
 * set up a few python3 modules
-** ephem (for calculating if sun is above/below horzon)
-** dropbox (for uploading images)
+   * ephem (for calculating if sun is above/below horzon)
+   * dropbox (for uploading images)
 * Install pagekite (http://pagekite.net) and expose your webserver and ssh (if you want to)
 * symlink /var/ramdisk/pic.jpg to /var/www/html/pic.jpg
 * symlink the index.html file in this repository to /var/www/html/index.html
