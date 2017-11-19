@@ -10,6 +10,6 @@ import uploadConfig as cfg
 
 filename=sys.argv[1][:-1]
 f=open(filename,'rb')
-#dbx.files_upload(f.read(),path='/midengi/{}'.format(os.path.basename(filename)),mute=True,autorename=True)
+#dbx.files_upload(f.read(),path='/mengivakt/{}'.format(os.path.basename(filename)),mute=True,autorename=True)
 f.close()
 os.remove(filename)
